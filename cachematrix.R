@@ -7,10 +7,12 @@ makeCacheMatrix <- function(x = matrix()) {
                 x <<- y
                 m <<- NULL
         }
-        
+        ## Get the original matrix from the parent environment
         get <- function() x
         setInverse <- function(inverse) m <<- inverse
         getInverse <- function() m
+        ## Create a list containing each of the above functions in the function's environment.
+        ## The outputs will instead be recorded, where applicable.
         list(
                 set = set, 
                 get = get,
